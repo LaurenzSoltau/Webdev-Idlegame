@@ -20,13 +20,12 @@ body {
 }
 .sectionRight {
   float: left;
-  width: 20%;
-  height: 600px;
+  width: 24%;
+  height: 700px;
   overflow-y: scroll; 
-  padding: 5px;
+  padding: 10px;
   border-bottom: gainsboro solid;
   margin-top: 30px;
-
 }
 .sectionRight::-webkit-scrollbar {
   display: none;
@@ -44,6 +43,11 @@ body {
   border: black dotted;
   width: 20%;
   margin-top: 20px;
+}
+
+.sectionLowLeft {
+  float: left;
+  width: 40%;
 }
 
 .scoreContainer {

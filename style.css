@@ -1,5 +1,25 @@
 body {
   background-color: powderblue;
+  margin: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  font-family:'Courier New', Courier, monospace;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 25%;
+  grid-template-rows: 1fr 1fr 1fr 1fr 40px;
+
+
+  box-sizing: border-box;;  
+}
+
+.container div {
+  padding: 10px;
+  
 }
 
 .noselect {
@@ -12,54 +32,68 @@ body {
                                         supported by Chrome, Edge, Opera and Firefox */
       }
 .sectionLeft {
-  float: left;
-  width: 36%;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
   overflow: visible;
-  padding-bottom: 40px;
-  padding-top: 30px;
 }
 .sectionRight {
-  float: left;
-  width: 24%;
-  height: 700px;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 4;
   overflow-y: scroll; 
-  padding: 10px;
-  border-bottom: gainsboro solid;
-  margin-top: 30px;
+  padding-top: 10px;
+  border-bottom: darkslategrey solid;
 }
 .sectionRight::-webkit-scrollbar {
   display: none;
 }
 .sectionCenter {
-    width: 37%;
-    float: left;
-    margin-right: 20px;
-    margin-top: 30px;
-
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 5;
+  
 }
 
 .sectionLowRight {
-  float: right;
-  border: black dotted;
-  width: 20%;
-  margin-top: 20px;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 5;
+ 
 }
 
 .sectionLowLeft {
-  float: left;
-  width: 40%;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 5;
+  
+}
+
+.lowerSection {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  
+
 }
 
 .scoreContainer {
+  grid-column-start: 1;
+  grid-column-end: 2;
   background-color: rgb(238, 238, 238, 0.6);
-  width: 50%;
-  padding: 10px;
   border-radius: 15px;
   font-size: 18px;
   font-weight: bold;
   overflow: visible;
   box-shadow: 5px 5px 2px rgba(24, 24, 24, 0.6);
 } 
+
 
 #clicker {
   background-image: url("./images/noodles.png");
@@ -68,6 +102,8 @@ body {
   width: 300px;
   position: relative;
   transition: all 0.15s ease-in-out;
+  margin-top: 10px;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.6));
 }
 #clicker:hover {
   transform: scale(1.10);
@@ -83,20 +119,15 @@ body {
   position: absolute;
 }
 
-.clickerImage {
-  height: 300px;
-  width: 300px;
-  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.6));
-}
 
 .shopButton {
   background-color: #b5b5b5;
   transition: all 0.1s ease-in-out;
   border-radius: 15px;
   width: 100%;
-  margin: 10px 0px 10px 0px;
   box-shadow:5px 5px 2px rgba(0, 0, 0, 0.7);
   outline: solid rgb(0, 104, 133);
+  margin-top: 15px;
 }
 .generatorImage {
   border-radius: 15px;
@@ -118,7 +149,6 @@ body {
   width: 64px;
 }
 .shopButton #nameAndCost p {
-  margin: 0px;
   width: 80%;
 }
 

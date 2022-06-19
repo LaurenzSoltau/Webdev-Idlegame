@@ -9,148 +9,153 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body class="noselect">
-        <div class="sectionLeft">
-            <center>
-                <div class="scoreContainer">
-                    <span id="noodles">0</span> Noodles<br>
-                    <span class="nps" id="noodlesPerSecond">0</span> Noodles per second
-                </div> <br>
+        <div class="container">
+            <div class="sectionLeft">
+                <center>
+                    <div class="scoreContainer">
+                        <span id="noodles">0</span> Noodles<br>
+                        <span class="nps" id="noodlesPerSecond">0</span> Noodles per second
+                    </div> <br>
+                
+                    <div id="clicker" onclick="Click()">
+                    
+                    </div>
+                </center>
+            </div>
+
+            <div class="sectionCenter">
+            Visuals / Stats
+            </div>
             
-                <div id="clicker" onclick="Click()">
-                    <img class="clickerImage" src="images/noodles.png" alt="">
-                </div>
-            </center>
-        </div>
-
-        <div class="sectionCenter">
-          Visuals / Stats
-        </div>
-        
 
 
-        <div class="sectionRight">
-           <table class="shopButton" onclick="BuySmallItalianKid()">
-            <tr>
-                <td id="image">
-                    <img class="generatorImage" src="images/stock-photo-kitchen-dinner-meal-pasta-italian-boy-messy-cook-1dc055f2-01e0-451b-a96b-9f0ae81e0a61.jpg" alt="generator 1">
-                </td>
-                <td class="generatorDescription" id="nameAndCost">
-                    <p>Small Italian Kid</p>
-                    <p><span id="priceSmallItalianKid">75</span> noodles</p>
-                </td>
-                <td id="amount">
-                    <span id="ownedSmallItalianKid">0</span>
-                </td>
-            </tr>
-            </table>
-
-            <table class="shopButton" onclick="BuyGrandma()">
+            <div class="sectionRight">
+            <table class="shopButton" onclick="BuySmallItalianKid()">
                 <tr>
                     <td id="image">
-                        <img class="generatorImage" src="images/grandma.jpg" alt="generator 2">
+                        <img class="generatorImage" src="images/stock-photo-kitchen-dinner-meal-pasta-italian-boy-messy-cook-1dc055f2-01e0-451b-a96b-9f0ae81e0a61.jpg" alt="generator 1">
                     </td>
                     <td class="generatorDescription" id="nameAndCost">
-                        <p>Grandma</p>
-                        <p><span id="priceGrandma">300</span> noodles</p>
+                        <p>Small Italian Kid</p>
+                        <p><span id="priceSmallItalianKid">75</span> noodles</p>
                     </td>
                     <td id="amount">
-                        <span id="ownedGrandma">0</span>
+                        <span id="ownedSmallItalianKid">0</span>
                     </td>
                 </tr>
                 </table>
 
-                <table class="shopButton" onclick="BuyCook()">
+                <table class="shopButton" onclick="BuyGrandma()">
                     <tr>
                         <td id="image">
-                            <img class="generatorImage" src="images/cook.jpg" alt="generator 3">
+                            <img class="generatorImage" src="images/grandma.jpg" alt="generator 2">
                         </td>
                         <td class="generatorDescription" id="nameAndCost">
-                            <p>Cook</p>
-                            <p><span id="priceCook">1250</span> noodles</p>
+                            <p>Grandma</p>
+                            <p><span id="priceGrandma">300</span> noodles</p>
                         </td>
                         <td id="amount">
-                            <span id="ownedCook">0</span>
+                            <span id="ownedGrandma">0</span>
                         </td>
                     </tr>
-                </table>
+                    </table>
 
-                <table class="shopButton" onclick="BuyNoodleMachine()">
-                    <tr>
-                        <td id="image">
-                            <img class="generatorImage" src="images/noodleMachine.jpg" alt="generator 3">
-                        </td>
-                        <td class="generatorDescription" id="nameAndCost">
-                            <p>Noodle Machine</p>
-                            <p><span id="priceNoodleMachine">5000</span> noodles</p>
-                        </td>
-                        <td id="amount">
-                            <span id="ownedNoodleMachine">0</span>
-                        </td>
-                    </tr>
-                </table>
+                    <table class="shopButton" onclick="BuyCook()">
+                        <tr>
+                            <td id="image">
+                                <img class="generatorImage" src="images/cook.jpg" alt="generator 3">
+                            </td>
+                            <td class="generatorDescription" id="nameAndCost">
+                                <p>Cook</p>
+                                <p><span id="priceCook">1250</span> noodles</p>
+                            </td>
+                            <td id="amount">
+                                <span id="ownedCook">0</span>
+                            </td>
+                        </tr>
+                    </table>
 
-                <table class="shopButton" onclick="BuyKitchen()">
-                    <tr>
-                        <td id="image">
-                            <img class="generatorImage" src="images/Kitchen.jpg" alt="generator 3">
-                        </td>
-                        <td class="generatorDescription" id="nameAndCost">
-                            <p>Kitchen</p>
-                            <p><span id="priceKitchen">22500</span> noodles</p>
-                        </td>
-                        <td id="amount">
-                            <span id="ownedKitchen">0</span>
-                        </td>
-                    </tr>
-                </table>
+                    <table class="shopButton" onclick="BuyNoodleMachine()">
+                        <tr>
+                            <td id="image">
+                                <img class="generatorImage" src="images/noodleMachine.jpg" alt="generator 3">
+                            </td>
+                            <td class="generatorDescription" id="nameAndCost">
+                                <p>Noodle Machine</p>
+                                <p><span id="priceNoodleMachine">5000</span> noodles</p>
+                            </td>
+                            <td id="amount">
+                                <span id="ownedNoodleMachine">0</span>
+                            </td>
+                        </tr>
+                    </table>
 
-                <table class="shopButton" onclick="BuySmallFactory()">
-                    <tr>
-                        <td id="image">
-                            <img class="generatorImage" src="images/smallFactory.jpg" alt="generator 3">
-                        </td>
-                        <td class="generatorDescription" id="nameAndCost">
-                            <p>Small Factory</p>
-                            <p><span id="priceSmallFactory">100000</span> noodles</p>
-                        </td>
-                        <td id="amount">
-                            <span id="ownedSmallFactory">0</span>
-                        </td>
-                    </tr>
-                </table>
+                    <table class="shopButton" onclick="BuyKitchen()">
+                        <tr>
+                            <td id="image">
+                                <img class="generatorImage" src="images/Kitchen.jpg" alt="generator 3">
+                            </td>
+                            <td class="generatorDescription" id="nameAndCost">
+                                <p>Kitchen</p>
+                                <p><span id="priceKitchen">22500</span> noodles</p>
+                            </td>
+                            <td id="amount">
+                                <span id="ownedKitchen">0</span>
+                            </td>
+                        </tr>
+                    </table>
 
-                <table class="shopButton" onclick="BuySmallFactory()">
-                    <tr>
-                        <td id="image">
-                            <img class="generatorImage" src="images/smallFactory.jpg" alt="generator 3">
-                        </td>
-                        <td class="generatorDescription" id="nameAndCost">
-                            <p>Small Factory</p>
-                            <p><span id="priceSmallFactory">100000</span> noodles</p>
-                        </td>
-                        <td id="amount">
-                            <span id="ownedSmallFactory">0</span>
-                        </td>
-                    </tr>
-                </table>
-        </div>
+                    <table class="shopButton" onclick="BuySmallFactory()">
+                        <tr>
+                            <td id="image">
+                                <img class="generatorImage" src="images/smallFactory.jpg" alt="generator 3">
+                            </td>
+                            <td class="generatorDescription" id="nameAndCost">
+                                <p>Small Factory</p>
+                                <p><span id="priceSmallFactory">100000</span> noodles</p>
+                            </td>
+                            <td id="amount">
+                                <span id="ownedSmallFactory">0</span>
+                            </td>
+                        </tr>
+                    </table>
 
-        <div class="sectionLowRight" >
-           Optionen
-        </div>
+                    <table class="shopButton" onclick="BuySmallFactory()">
+                        <tr>
+                            <td id="image">
+                                <img class="generatorImage" src="images/smallFactory.jpg" alt="generator 3">
+                            </td>
+                            <td class="generatorDescription" id="nameAndCost">
+                                <p>Small Factory</p>
+                                <p><span id="priceSmallFactory">100000</span> noodles</p>
+                            </td>
+                            <td id="amount">
+                                <span id="ownedSmallFactory">0</span>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
 
-        <div class="sectionLowLeft">
-            Upgrades
-        </div>
+            <div class="sectionLowRight" >
+            Optionen
+            </div>
 
-       
+            <div class="sectionLowLeft">
+                Upgrades
+            </div>
 
-        <script src="script.js" async defer></script>
+            <div class="lowerSection">Contact me <button onclick="GiveCoins()">Cheat</button></div>
+
+        
+
+            <script src="script.js" async defer></script>
 
 
 
-        <div>
-            <button onclick="GiveCoins()">Cheat</button>
+            
+           
+            
+
         </div>
         </body>
 

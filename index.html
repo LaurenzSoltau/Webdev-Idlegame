@@ -13,16 +13,15 @@
             <center>
                 <div class="scoreContainer">
                     <span id="noodles">0</span> Noodles<br>
-                    <span id="noodlesPerSecond">0</span> Noodles per second
+                    <span class="nps" id="noodlesPerSecond">0</span> Noodles per second
                 </div> <br>
             
-                <div class="clickerContainer">
-                    <img class="noselect" src="images/noodles.jpeg" alt="Nudelverpackung" onclick="Click()" width="256px" height="256px">
-                </div>
+                <div id="clicker" onclick="Click()"></div>
             </center>
         </div>
         
-        
+
+
         <div class="sectionRight">
            <table class="shopButton" onclick="BuySmallItalianKid()">
             <tr>
@@ -67,7 +66,55 @@
                             <span id="ownedCook">0</span>
                         </td>
                     </tr>
-                    </table>
+                </table>
+
+                <table class="shopButton" onclick="BuyNoodleMachine()">
+                    <tr>
+                        <td id="image">
+                            <img class="generatorImage" src="images/noodleMachine.jpg" alt="generator 3">
+                        </td>
+                        <td class="generatorDescription" id="nameAndCost">
+                            <p>Noodle Machine</p>
+                            <p><span id="priceNoodleMachine">5000</span> noodles</p>
+                        </td>
+                        <td id="amount">
+                            <span id="ownedNoodleMachine">0</span>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="shopButton" onclick="BuyKitchen()">
+                    <tr>
+                        <td id="image">
+                            <img class="generatorImage" src="images/Kitchen.jpg" alt="generator 3">
+                        </td>
+                        <td class="generatorDescription" id="nameAndCost">
+                            <p>Kitchen</p>
+                            <p><span id="priceKitchen">22500</span> noodles</p>
+                        </td>
+                        <td id="amount">
+                            <span id="ownedKitchen">0</span>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="shopButton" onclick="BuySmallFactory()">
+                    <tr>
+                        <td id="image">
+                            <img class="generatorImage" src="images/smallFactory.jpg" alt="generator 3">
+                        </td>
+                        <td class="generatorDescription" id="nameAndCost">
+                            <p>Small Factory</p>
+                            <p><span id="priceSmallFactory">100000</span> noodles</p>
+                        </td>
+                        <td id="amount">
+                            <span id="ownedSmallFactory">0</span>
+                        </td>
+                    </tr>
+                </table>
+
+
+
 
                 
         </div>

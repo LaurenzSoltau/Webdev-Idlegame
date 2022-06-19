@@ -1,4 +1,6 @@
-
+body {
+  background-color: powderblue;
+}
 
 .noselect {
         -webkit-touch-callout: none; /* iOS Safari */
@@ -12,12 +14,13 @@
 .sectionLeft {
   float: left;
   width: 80%;
+  overflow: visible;
 }
 .sectionRight {
   float: right;
   width: 20%;
   overflow-y: scroll;
- 
+  overflow: visible;
 }
 .sectionRight::-webkit-scrollbar {
   display: none;
@@ -29,25 +32,41 @@
   border-radius: 15px;
   font-size: 18px;
   font-weight: bold;
+  overflow: visible;
+  box-shadow: 5px 5px 2px rgba(24, 24, 24, 0.6);
 } 
-.clickerContainer {
+
+#clicker {
+  background-image: url("./images/noodles.png");
+  background-size: contain;
+  height: 300px;
+  width: 300px;
   position: relative;
+  transition: all 0.15s ease-in-out;
+}
+#clicker:hover {
+  transform: scale(1.10);
+}
+#clicker:active {
+  transform: scale(0.99);
 }
 
-.clickerContainer img:hover {
-  transform: scale(1.1);
-  transition: all 0.1s ease-in-out;
+#clicker > .number {
+  z-index: 99;
+  font-size: 24px;
+  color: black;
+  position: absolute;
 }
-.clickerContainer img:active {
-  transform: scale(0.99);
-  transition: all 0.1s ease-in-out;
-}
+
 .shopButton {
   background-color: #b5b5b5;
   transition: all 0.1s ease-in-out;
   border-radius: 15px;
   width: 100%;
   margin: 10px 0px 10px 0px;
+  overflow: visible;
+  box-shadow:5px 5px 2px rgba(0, 0, 0, 0.7) ;
+  
 }
 .generatorImage {
   border-radius: 15px;

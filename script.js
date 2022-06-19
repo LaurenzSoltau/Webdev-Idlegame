@@ -29,6 +29,46 @@ var baseNpsCook = 10;
 var ownedCook = 0;
 var priceNextCook;
 
+// noodle machine
+
+var basePriceNoodleMachine = 5000;
+var baseNpsNoodleMachine = 25;
+var ownedNoodleMachine = 0;
+var priceNextNoodleMachine;
+
+// kitchen
+
+var basePriceKitchen = 22500;
+var baseNpsKitchen = 100;
+var ownedKitchen = 0;
+var priceNextKitchen;
+
+// small factory
+
+var basePriceSmallFactory = 100000;
+var baseNpsSmallFactory = 400;
+var ownedSmallFactory = 0;
+var priceNextSmallFactory;
+
+
+// big factory
+
+
+// noodle Country
+
+
+// noodle Planet
+
+
+// noodle Star
+
+
+// noodle Solar System
+
+// Noodle Galaxy
+
+// Black hole
+
 
 
 
@@ -46,9 +86,17 @@ function Start()
     priceNextSmallItalianKid = CalculatePriceNextSmallItalianKid();
     priceNextGrandma = CalculatePriceNextGrandma();
     priceNextCook = CalculatePriceNextCook();
+    priceNextNoodleMachine = CalculatePriceNextNoodleMachine();
+    priceNextKitchen = CalculatePriceNextKitchen();
+    priceNextSmallFactory = CalculatePriceNextSmallFactory();
     
 }
 // general
+
+document.getElementById("clicker").addEventListener("click", function(event) 
+{
+    NumberOnClicker(event);
+}, false)
 
 setInterval(function() {
     noodles = noodles + NoodlesNextSecond()
@@ -70,6 +118,61 @@ function NoodlesNextClick()
 function NoodlesNextSecond()
 {
     return noodlesPerSecond * noodlesPerSecondFactor;
+}
+
+
+function FadeOut(element, duration, finalOpacity, callback){
+    let opacity = 1;
+
+    let elementFadingInterval = window.setInterval(function() {
+        opacity -= 50 / duration;
+
+        if (opacity <= finalOpacity){
+            clearInterval(elementFadingInterval);
+            callback();
+        }
+        element.style.opacity = opacity;
+    }, 50);
+    
+}
+
+function NumberOnClicker(event) 
+{
+    //grab the clicker
+    let clicker = document.getElementById("clicker");
+   
+    // grab position of click
+
+    let clickerOffset = clicker.getBoundingClientRect();
+    let position = {
+        x: event.pageX - clickerOffset.left,
+        y: event.pageY - clickerOffset.top,
+    }
+
+    // Create the Number
+    let element = document.createElement("div");
+    element.textContent = "+" + NoodlesNextClick();
+    element.classList.add("number");
+    element.style.left = position.x + "px"
+    element.style.top = position.y +"px"
+   
+    // Add the Number to the clicker
+    clicker.appendChild(element);
+
+    //slowly rise element
+
+    let movementInterval = window.setInterval(function(){
+        if (typeof element == "undefined" && element == null) clearInterval(movementInterval);
+        
+        position.y--;
+        element.style.top = position.y + "px"
+    }, 10);
+
+    //slowly fade out
+    FadeOut(element, 2500, 0.3, function() {
+        element.remove();
+    });
+
 }
 // buy generators
 
@@ -104,7 +207,7 @@ function BuyGrandma()
 }
 function BuyCook()
 {
-    if(noodles < priceNextGrandma){
+    if(noodles < priceNextCook){
         return;
     }
     noodles = noodles - priceNextCook;
@@ -113,6 +216,36 @@ function BuyCook()
     priceNextCook = CalculatePriceNextCook();
     document.getElementById("priceCook").innerHTML = priceNextCook;
     document.getElementById("ownedCook").innerHTML = ownedCook;
+    document.getElementById("noodles").innerHTML = noodles;
+    document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+}
+
+function BuyNoodleMachine()
+{
+    if(noodles < priceNextNoodleMachine){
+        return;
+    }
+    noodles = noodles - priceNextNoodleMachine;
+    ownedNoodleMachine = ownedNoodleMachine + 1;
+    noodlesPerSecond = noodlesPerSecond + baseNpsNoodleMachine;
+    priceNextNoodleMachine = CalculatePriceNextNoodleMachine();
+    document.getElementById("priceNoodleMachine").innerHTML = priceNextNoodleMachine;
+    document.getElementById("ownedNoodleMachine").innerHTML = ownedNoodleMachine;
+    document.getElementById("noodles").innerHTML = noodles;
+    document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+}
+
+function BuyKitchen()
+{
+    if(noodles < priceNextKitchen){
+        return;
+    }
+    noodles = noodles - priceNextKitchen;
+    ownedKitchen = ownedKitchen + 1;
+    noodlesPerSecond = noodlesPerSecond + baseNpsKitchen;
+    priceNextNoodleMachine = CalculatePriceNextNoodleMachine();
+    document.getElementById("priceKitchen").innerHTML = priceNextKitchen;
+    document.getElementById("ownedKitchen").innerHTML = ownedKitchen;
     document.getElementById("noodles").innerHTML = noodles;
     document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
 }
@@ -134,6 +267,22 @@ function CalculatePriceNextCook()
 {
     return Math.round(basePriceCook * (Math.pow(growthFactor, ownedCook)));
 }
+
+function CalculatePriceNextNoodleMachine()
+{
+    return Math.round(basePriceNoodleMachine * (Math.pow(growthFactor, ownedNoodleMachine)));
+}
+
+function CalculatePriceNextKitchen()
+{
+    return Math.round(basePriceKitchen * (Math.pow(growthFactor, ownedKitchen)));
+}
+
+function CalculatePriceNextSmallFactory()
+{
+    return Math.round(basePriceSmallFactory * (Math.pow(growthFactor, ownedSmallFactory)));
+}
+
 
 
 

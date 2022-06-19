@@ -16,8 +16,14 @@
                     <span class="nps" id="noodlesPerSecond">0</span> Noodles per second
                 </div> <br>
             
-                <div id="clicker" onclick="Click()"></div>
+                <div id="clicker" onclick="Click()">
+                    <img class="clickerImage" src="images/noodles.png" alt="">
+                </div>
             </center>
+        </div>
+
+        <div class="sectionCenter">
+          Visuals / Stats
         </div>
         
 
@@ -113,16 +119,35 @@
                     </tr>
                 </table>
 
-
-
-
-                
+                <table class="shopButton" onclick="BuySmallFactory()">
+                    <tr>
+                        <td id="image">
+                            <img class="generatorImage" src="images/smallFactory.jpg" alt="generator 3">
+                        </td>
+                        <td class="generatorDescription" id="nameAndCost">
+                            <p>Small Factory</p>
+                            <p><span id="priceSmallFactory">100000</span> noodles</p>
+                        </td>
+                        <td id="amount">
+                            <span id="ownedSmallFactory">0</span>
+                        </td>
+                    </tr>
+                </table>
         </div>
+
+        <div class="sectionLowRight" >
+           Optionen
+        </div>
+
+       
+
         <script src="script.js" async defer></script>
 
 
 
+        <div>
+            <button onclick="GiveCoins()">Cheat</button>
+        </div>
+        </body>
 
-        <button onclick="GiveCoins()">Cheat</button>
-    </body>
 </html>

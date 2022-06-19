@@ -13,18 +13,39 @@ body {
       }
 .sectionLeft {
   float: left;
-  width: 80%;
+  width: 36%;
   overflow: visible;
+  padding-bottom: 40px;
+  padding-top: 30px;
 }
 .sectionRight {
-  float: right;
+  float: left;
   width: 20%;
-  overflow-y: scroll;
-  overflow: visible;
+  height: 600px;
+  overflow-y: scroll; 
+  padding: 5px;
+  border-bottom: gainsboro solid;
+  margin-top: 30px;
+
 }
 .sectionRight::-webkit-scrollbar {
   display: none;
 }
+.sectionCenter {
+    width: 37%;
+    float: left;
+    margin-right: 20px;
+    margin-top: 30px;
+
+}
+
+.sectionLowRight {
+  float: right;
+  border: black dotted;
+  width: 20%;
+  margin-top: 20px;
+}
+
 .scoreContainer {
   background-color: rgb(238, 238, 238, 0.6);
   width: 50%;
@@ -58,15 +79,20 @@ body {
   position: absolute;
 }
 
+.clickerImage {
+  height: 300px;
+  width: 300px;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.6));
+}
+
 .shopButton {
   background-color: #b5b5b5;
   transition: all 0.1s ease-in-out;
   border-radius: 15px;
   width: 100%;
   margin: 10px 0px 10px 0px;
-  overflow: visible;
-  box-shadow:5px 5px 2px rgba(0, 0, 0, 0.7) ;
-  
+  box-shadow:5px 5px 2px rgba(0, 0, 0, 0.7);
+  outline: solid rgb(0, 104, 133);
 }
 .generatorImage {
   border-radius: 15px;

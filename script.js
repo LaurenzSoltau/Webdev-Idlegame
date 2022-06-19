@@ -155,7 +155,7 @@ function NumberOnClicker(event)
     element.classList.add("number");
     element.style.left = position.x + "px"
     element.style.top = position.y +"px"
-   
+    
     // Add the Number to the clicker
     clicker.appendChild(element);
 

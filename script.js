@@ -6,6 +6,7 @@ var noodlesPerSecond = 0;
 var growthFactor = 1.07;
 var noodlesPerSecondFactor = 1;
 var noodlesPerClickFactor = 1;
+var highestNoodles = 0;
 
 // Generator variables
 
@@ -16,35 +17,36 @@ var ownedSmallItalianKid = 0;
 var priceNextSmallItalianKid; 
 
 // grandma
-
+let grandmaElement = document.getElementById("grandma");
+var grayed = true;
 var basePriceGrandma = 300;
 var baseNpsGrandma = 3;
 var ownedGrandma = 0;
 var priceNextGrandma;
 
 // cook
-
+let cookElement = document.getElementById("cook")
 var basePriceCook = 1250;
 var baseNpsCook = 10;
 var ownedCook = 0;
 var priceNextCook;
 
 // noodle machine
-
+let noodleMachineElement = document.getElementById("noodleMachine")
 var basePriceNoodleMachine = 5000;
 var baseNpsNoodleMachine = 25;
 var ownedNoodleMachine = 0;
 var priceNextNoodleMachine;
 
 // kitchen
-
+let kitchenElement = document.getElementById("kitchen")
 var basePriceKitchen = 22500;
 var baseNpsKitchen = 100;
 var ownedKitchen = 0;
 var priceNextKitchen;
 
 // small factory
-
+let smallFactoryElement = document.getElementById("smallFactory")
 var basePriceSmallFactory = 100000;
 var baseNpsSmallFactory = 400;
 var ownedSmallFactory = 0;
@@ -294,3 +296,17 @@ function GiveCoins() {
 }
 
 Start();
+
+document.getElementById("grandma").style.backgroundColor = "black"
+checkLoop = window.setInterval(function(){
+    if(noodles > highestNoodles){
+        highestNoodles = noodles;
+    }
+    if(basePriceGrandma <= highestNoodles){
+        document.getElementById("grandma").style.backgroundColor = "#b5b5b5";
+    }
+},50)
+
+// testing
+
+

@@ -137,7 +137,7 @@ body {
 }
 
 .shopButton:hover {
-  background-color: #c7c7c7;
+  background-color: #c7c7c7; 
   transition: all .1s ease-in-out;
 }
 .shopButton #image {

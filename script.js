@@ -374,11 +374,3 @@ function GiveCoins() {
 }
 
 Start();
-
-
-
-
-
-// testing
-
-

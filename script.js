@@ -93,6 +93,7 @@ function Start()
     priceNextKitchen = CalculatePriceNextKitchen();
     priceNextSmallFactory = CalculatePriceNextSmallFactory();
     
+    document.getElementById("grandma").style.backgroundColor = "darkgrey";
     document.getElementById("cook").style.backgroundColor = "darkgrey";
     document.getElementById("noodleMachine").style.backgroundColor = "darkgrey";
     document.getElementById("kitchen").style.backgroundColor = "darkgrey";
@@ -101,6 +102,7 @@ function Start()
     document.getElementById("kitchen").style.visibility = "hidden";
     document.getElementById("smallFactory").style.visibility = "hidden";
     document.getElementById("noodleMachineName").innerHTML = "???";
+    document.getElementById("grandmaName").innerHTML = "???";
     document.getElementById("cookName").innerHTML = "???";
     document.getElementById("kitchenName").innerHTML = "???";
     document.getElementById("smallFactoryName").innerHTML = "???";
@@ -373,16 +375,7 @@ function GiveCoins() {
 
 Start();
 
-document.getElementById("grandma").style.backgroundColor = "darkgrey";
-document.getElementById("cook").style.backgroundColor = "darkgrey";
-document.getElementById("noodleMachine").style.backgroundColor = "darkgrey";
-document.getElementById("kitchen").style.backgroundColor = "darkgrey";
-document.getElementById("smallFactory").style.backgroundColor = "darkgrey";
-document.getElementById("noodleMachineName").innerHTML = "???";
-document.getElementById("grandmaName").innerHTML = "???";
-document.getElementById("cookName").innerHTML = "???";
-document.getElementById("kitchenName").innerHTML = "???";
-document.getElementById("smallFactoryName").innerHTML = "???";
+
 
 
 

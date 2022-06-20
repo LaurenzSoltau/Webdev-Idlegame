@@ -6,6 +6,8 @@ var noodlesPerSecond = 0;
 var growthFactor = 1.07;
 var noodlesPerSecondFactor = 1;
 var noodlesPerClickFactor = 1;
+var highestNoodles = 0;
+var generatorStage = 1;
 
 // Generator variables
 
@@ -16,35 +18,36 @@ var ownedSmallItalianKid = 0;
 var priceNextSmallItalianKid; 
 
 // grandma
-
+let grandmaElement = document.getElementById("grandma");
+var grayed = true;
 var basePriceGrandma = 300;
 var baseNpsGrandma = 3;
 var ownedGrandma = 0;
 var priceNextGrandma;
 
 // cook
-
+let cookElement = document.getElementById("cook")
 var basePriceCook = 1250;
 var baseNpsCook = 10;
 var ownedCook = 0;
 var priceNextCook;
 
 // noodle machine
-
+let noodleMachineElement = document.getElementById("noodleMachine")
 var basePriceNoodleMachine = 5000;
 var baseNpsNoodleMachine = 25;
 var ownedNoodleMachine = 0;
 var priceNextNoodleMachine;
 
 // kitchen
-
+let kitchenElement = document.getElementById("kitchen")
 var basePriceKitchen = 22500;
 var baseNpsKitchen = 100;
 var ownedKitchen = 0;
 var priceNextKitchen;
 
 // small factory
-
+let smallFactoryElement = document.getElementById("smallFactory")
 var basePriceSmallFactory = 100000;
 var baseNpsSmallFactory = 400;
 var ownedSmallFactory = 0;
@@ -196,6 +199,8 @@ function BuyGrandma()
     if(noodles < priceNextGrandma){
         return;
     }
+    if (generatorStage < 2) {
+    generatorStage = 2; }
     noodles = noodles - priceNextGrandma;
     ownedGrandma = ownedGrandma + 1;
     noodlesPerSecond = noodlesPerSecond + baseNpsGrandma;
@@ -210,6 +215,8 @@ function BuyCook()
     if(noodles < priceNextCook){
         return;
     }
+    if(generatorStage < 3){
+    generatorStage = 3;}
     noodles = noodles - priceNextCook;
     ownedCook = ownedCook + 1;
     noodlesPerSecond = noodlesPerSecond + baseNpsCook;
@@ -225,6 +232,8 @@ function BuyNoodleMachine()
     if(noodles < priceNextNoodleMachine){
         return;
     }
+    if(generatorStage <4){
+    generatorStage = 4;}
     noodles = noodles - priceNextNoodleMachine;
     ownedNoodleMachine = ownedNoodleMachine + 1;
     noodlesPerSecond = noodlesPerSecond + baseNpsNoodleMachine;
@@ -240,16 +249,34 @@ function BuyKitchen()
     if(noodles < priceNextKitchen){
         return;
     }
+    if(generatorStage <5){
+    generatorStage = 5;}
     noodles = noodles - priceNextKitchen;
     ownedKitchen = ownedKitchen + 1;
     noodlesPerSecond = noodlesPerSecond + baseNpsKitchen;
-    priceNextNoodleMachine = CalculatePriceNextNoodleMachine();
+    priceNextKitchen = CalculatePriceNextKitchen();
     document.getElementById("priceKitchen").innerHTML = priceNextKitchen;
     document.getElementById("ownedKitchen").innerHTML = ownedKitchen;
     document.getElementById("noodles").innerHTML = noodles;
     document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
 }
 
+function BuySmallFactory()
+{
+    if(noodles < priceNextSmallFactory){ 
+        return;
+    }
+    if(generatorStage <6){
+    generatorStage = 6;}
+    noodles = noodles - priceNextSmallFactory;
+    ownedSmallFactory = ownedSmallFactory + 1;
+    noodlesPerSecond = noodlesPerSecond + baseNpsKitchen;
+    priceNextNoodleMachine = CalculatePriceNextNoodleMachine();
+    document.getElementById("priceSmallFactory").innerHTML = priceNextSmallFactory;
+    document.getElementById("ownedSmallFactory").innerHTML = ownedSmallFactory;
+    document.getElementById("noodles").innerHTML = noodles;
+    document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+}
 
 // calculate prices
 
@@ -289,8 +316,88 @@ function CalculatePriceNextSmallFactory()
 // Developer Tools
 
 function GiveCoins() {
-    noodles = noodles + 100;
+    noodles = noodles + 1000;
     document.getElementById("noodles").innerHTML = noodles;
 }
 
 Start();
+
+document.getElementById("grandma").style.backgroundColor = "darkgrey";
+document.getElementById("cook").style.backgroundColor = "darkgrey";
+document.getElementById("noodleMachine").style.backgroundColor = "darkgrey";
+document.getElementById("kitchen").style.backgroundColor = "darkgrey";
+document.getElementById("smallFactory").style.backgroundColor = "darkgrey";
+document.getElementById("noodleMachineName").innerHTML = "???";
+document.getElementById("grandmaName").innerHTML = "???";
+document.getElementById("cookName").innerHTML = "???";
+document.getElementById("kitchenName").innerHTML = "???";
+document.getElementById("smallFactoryName").innerHTML = "???";
+
+
+
+
+setInterval(function() {
+
+    if (document.getElementById("priceGrandma").innerHTML<=noodles){
+        document.getElementById("grandma").style.removeProperty("background-color");
+        document.getElementById("grandmaName").innerHTML = "Grandma";
+
+        return;
+    }
+}, 100);
+
+setInterval(function() {
+
+    if (document.getElementById("priceCook").innerHTML<=noodles){
+        document.getElementById("cook").style.removeProperty("background-color");
+        document.getElementById("cookName").innerHTML = "Cook";
+        return;
+    }
+}, 100);
+
+setInterval(function() {
+
+    if (document.getElementById("priceNoodleMachine").innerHTML<=noodles){
+        document.getElementById("noodleMachine").style.removeProperty("background-color");
+        document.getElementById("noodleMachineName").innerHTML = "Noodle Machine";
+        return;
+    }
+}, 100);
+
+setInterval(function() {
+
+    if (document.getElementById("priceKitchen").innerHTML<=noodles){
+        document.getElementById("kitchen").style.removeProperty("background-color");
+        document.getElementById("kitchenName").innerHTML = "Kitchen";
+        return;
+    }
+}, 100);
+
+setInterval(function() {
+
+    if (document.getElementById("priceSmallFactory").innerHTML<=noodles){
+        document.getElementById("smallFactory").style.removeProperty("background-color");
+        document.getElementById("smallFactoryName").innerHTML = "Small Factory";
+        return;
+    }
+}, 100);
+
+setInterval(function() {
+    if(generatorStage == 1){
+        noodleMachineElement.style.visibility = "hidden";
+        kitchenElement.style.visibility = "hidden";
+        smallFactoryElement.style.visibility = "hidden";
+    }else if(generatorStage == 2){
+        noodleMachineElement.style.visibility = "visible";
+        kitchenElement.style.visibility = "hidden";
+        smallFactoryElement.style.visibility = "hidden";
+    }else if(generatorStage == 3) {
+        kitchenElement.style.visibility = "visible";
+    }else if(generatorStage == 4) {
+        smallFactoryElement.style.visibility = "visible";
+    }
+}, 100)
+
+// testing
+
+

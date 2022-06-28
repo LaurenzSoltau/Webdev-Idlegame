@@ -1,11 +1,13 @@
 body {
-  background-color: powderblue;
+  background-color: #C2DED1;
   margin: 0;
 }
 
 .container {
   width: 100vw;
   height: 100vh;
+  max-width: 1920px;
+ 
 
   font-family:'Courier New', Courier, monospace;
 
@@ -70,7 +72,7 @@ body {
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 5;
-  
+  overflow-y: scroll;
 }
 
 .lowerSection {
@@ -78,8 +80,6 @@ body {
   grid-column-end: 4;
   grid-row-start: 5;
   grid-row-end: 6;
-  
-
 }
 
 .scoreContainer {
@@ -87,11 +87,15 @@ body {
   grid-column-end: 2;
   background-color: rgb(238, 238, 238, 0.6);
   border-radius: 15px;
-  font-size: 18px;
   font-weight: bold;
   overflow: visible;
   box-shadow: 5px 5px 2px rgba(24, 24, 24, 0.6);
 } 
+
+.noodleText {
+  font-size: 18px;
+}
+
 
 
 #clicker {
@@ -145,6 +149,7 @@ body {
 .shopButton img {
   height: 64px;
   width: 64px;
+  box-shadow:2px 2px 1px rgba(0, 0, 0, 0.7);
 }
 .shopButton #nameAndCost p {
   width: 80%;
@@ -159,4 +164,48 @@ body {
   color: #707070;
   
   font-family: 'Times New Roman', Times, serif;
+}
+
+.upgradeShop {
+  background-color: #b5b5b5;
+  border-radius: 15px;  
+  margin-top: 5px;
+  box-shadow:5px 5px 2px rgba(0, 0, 0, 0.7);
+  padding-right: 10px;
+  width: 45%;
+  transition: all .1s ease-in-out;
+}
+
+.upgradeContainer {
+  border-spacing: 10px;
+}
+.upgradeShop #upgradeDescription {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.upgradeShop img {
+  height: 70px;
+  width: 70px;
+  border-radius: 15px;
+  margin-right: 10px;
+  box-shadow:2px 2px 1px rgba(0, 0, 0, 0.7);
+}
+
+.sectionLowLeft {
+  overflow: scroll;
+}
+
+.sectionLowLeft::-webkit-scrollbar {
+  display: none;
+}
+
+.oneUpgradeContainer {
+  width: 40%;
+  height: 100%;
+}
+
+.upgradeShop:hover {
+  background-color: #c7c7c7; 
+  transition: all .1s ease-in-out;
 }

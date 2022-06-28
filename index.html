@@ -13,8 +13,9 @@
             <div class="sectionLeft">
                 <center>
                     <div class="scoreContainer">
-                        <span id="noodles">0</span> Noodles<br>
-                        <span class="nps" id="noodlesPerSecond">0</span> Noodles per second
+                        <span class="noodleText"><span id="noodles">0</span> Noodles <br></span>
+                        <span class="nps" id="noodlesPerSecond">0</span> Noodles per second <br>
+                        <span id="noodlesPerClick">1</span> Noodles per click
                     </div> <br>
                 
                     <div id="clicker" onclick="Click(), playClickSound()">
@@ -127,6 +128,145 @@
 
             <div class="sectionLowLeft">
                 Upgrades
+                
+                <table class="upgradeContainer"> 
+                    <tr>
+                        <td class="oneUpgradeContainer">
+                            <table class="upgradeShop", id="upgrade1" onclick="BuyUpgrade1()">
+                                <tr>
+                                        <td>
+                                            <img src="/images/stock-photo-kitchen-dinner-meal-pasta-italian-boy-messy-cook-1dc055f2-01e0-451b-a96b-9f0ae81e0a61.jpg" alt="small italian kid">
+                                        </td>
+                                        <td>
+                                            <p id="upgradeName"><strong>Fast fingers</strong></p>
+                                                <p><span>150</span> noodles</p>
+                                        </td>
+                                        <td>
+                                            <p id="upgradeDescription">Doubles the production <br> from Small Italian Kids</p>
+                                        </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="oneUpgradeContainer">
+                            <table class="upgradeShop", id="upgrade2", onclick="BuyUpgrade2()">
+                                <tr>
+                                        <td>
+                                            <img src="/images/R.png" alt="cursor">
+                                        </td>
+                                        <td>
+                                            <p id="upgradeName"><strong>Better Clicks</strong></p>
+                                                <p><span>300</span> noodles</p>
+                                        </td>
+                                        <td id="upgradeDescription">
+                                            <p style="margin-left: 10px";>Doubles the Clickpower</p>
+                                        </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="oneUpgradeContainer">
+                            <table class="upgradeShop", id="upgrade3", onclick="BuyUpgrade3()">
+                                <tr>
+                                        <td>
+                                            <img src="/images/grandma.jpg" alt="grandma">
+                                        </td>
+                                        <td>
+                                            <p id="upgradeName"><strong>Better Tools</strong></p>
+                                                <p><span>450</span> noodles</p>
+                                        </td>
+                                        <td>
+                                            <p id="upgradeDescription">Doubles the production <br> of grandmas</p>
+                                        </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="oneUpgradeContainer">
+                            <table class="upgradeShop", id="upgrade4", onclick="BuyUpgrade4()">
+                                <tr>
+                                        <td>
+                                            <img src="/images/stock-photo-kitchen-dinner-meal-pasta-italian-boy-messy-cook-1dc055f2-01e0-451b-a96b-9f0ae81e0a61.jpg" alt="grandma">
+                                        </td>
+                                        <td>
+                                            <p id="upgradeName"><strong>Sibling helping</strong></p>
+                                                <p><span>750</span> noodles</p>
+                                        </td>
+                                        <td id="upgradeDescription">
+                                            <p style="margin-left: 10px;">Doubles the production <br> of small Italian Kid</p>
+                                        </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="oneUpgradeContainer">
+                            <table class="upgradeShop", id="upgrade5" onclick="BuyUpgrade5()">
+                                <tr>
+                                        <td>
+                                            <img src="/images/grandma.jpg" alt="small italian kid">
+                                        </td>
+                                        <td>
+                                            <p id="upgradeName"><strong>Faster Grandmas</strong></p>
+                                                <p><span>1500</span> noodles</p>
+                                        </td>
+                                        <td>
+                                            <p id="upgradeDescription">Doubles the production <br> from grandmas</p>
+                                        </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="oneUpgradeContainer">
+                            <table class="upgradeShop", id="upgrade6", onclick="BuyUpgrade6()">
+                                <tr>
+                                        <td>
+                                            <img src="/images/cook.jpg" alt="cursor">
+                                        </td>
+                                        <td>
+                                            <p id="upgradeName"><strong>New apron</strong></p>
+                                                <p><span>2500</span> noodles</p>
+                                        </td>
+                                        <td id="upgradeDescription">
+                                            <p style="margin-left: 10px";>Doubles the production of Cook</p>
+                                        </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="oneUpgradeContainer">
+                            <table class="upgradeShop", id="upgrade7", onclick="BuyUpgrade7()">
+                                <tr>
+                                        <td>
+                                            <img src="/images/R.png" alt="grandma">
+                                        </td>
+                                        <td>
+                                            <p id="upgradeName"><strong>Stronger Clicks</strong></p>
+                                                <p><span>7500</span> noodles</p>
+                                        </td>
+                                        <td>
+                                            <p id="upgradeDescription">Doubles the <br> Clickpower</p>
+                                        </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="oneUpgradeContainer">
+                            <table class="upgradeShop", id="upgrade8", onclick="BuyUpgrade8()">
+                                <tr>
+                                        <td>
+                                            <img src="/images/cook.jpg" alt="grandma">
+                                        </td>
+                                        <td>
+                                            <p id="upgradeName"><strong>Stronger arms</strong></p>
+                                                <p><span>15000</span> noodles</p>
+                                        </td>
+                                        <td id="upgradeDescription">
+                                            <p style="margin-left: 10px;">Doubles the production <br> of cooks</p>
+                                        </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
             </div>
 
             <div class="lowerSection">Contact me <button onclick="GiveCoins()">Cheat</button></div>

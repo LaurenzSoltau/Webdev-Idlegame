@@ -16,6 +16,7 @@ var basePriceSmallItalianKid = 75;
 var baseNpsSmallItalianKid = 1;
 var ownedSmallItalianKid = 0;
 var priceNextSmallItalianKid; 
+var smallItalianKidFactor = 1;
 
 // grandma
 let grandmaElement = document.getElementById("grandma");
@@ -24,6 +25,7 @@ var basePriceGrandma = 300;
 var baseNpsGrandma = 3;
 var ownedGrandma = 0;
 var priceNextGrandma;
+var grandmaFactor = 1;
 
 // cook
 let cookElement = document.getElementById("cook")
@@ -31,6 +33,7 @@ var basePriceCook = 1250;
 var baseNpsCook = 10;
 var ownedCook = 0;
 var priceNextCook;
+var cookFactor = 1;
 
 // noodle machine
 let noodleMachineElement = document.getElementById("noodleMachine")
@@ -38,6 +41,7 @@ var basePriceNoodleMachine = 5000;
 var baseNpsNoodleMachine = 25;
 var ownedNoodleMachine = 0;
 var priceNextNoodleMachine;
+var noodleMachineFactor = 1;
 
 // kitchen
 let kitchenElement = document.getElementById("kitchen")
@@ -45,6 +49,7 @@ var basePriceKitchen = 22500;
 var baseNpsKitchen = 100;
 var ownedKitchen = 0;
 var priceNextKitchen;
+var kitchenFactor = 1;
 
 // small factory
 let smallFactoryElement = document.getElementById("smallFactory")
@@ -52,6 +57,7 @@ var basePriceSmallFactory = 100000;
 var baseNpsSmallFactory = 400;
 var ownedSmallFactory = 0;
 var priceNextSmallFactory;
+var smallFactoryFactor = 1;
 
 
 // big factory
@@ -74,8 +80,63 @@ var priceNextSmallFactory;
 
 
 
-
-
+// upgrades
+    let Upgrade1 = {
+        cost : 150,
+        requirement : 1, //small italian kid
+        bought : false,
+        visible: false,
+        effect : 2, //smallItalianKidFactor
+    }
+    let Upgrade2 = {
+        cost : 300,
+        requirement : 2, //small italian kid
+        bought : false,
+        visible: false,
+        effect : 2, //NoodlesPerclick Factor
+    }
+    let Upgrade3 = {
+        cost : 450,
+        requirement : 1, // grandma
+        bought : false,
+        visible: false,
+        effect : 2, //grandma Factor
+    }
+    let Upgrade4 = {
+        cost : 750,
+        requirement : 5, //small italian kid
+        bought : false,
+        visible: false,
+        effect : 2, //smallItalianKidFactor
+    }
+    let Upgrade5 = {
+        cost : 1500,
+        requirement : 10, //Grandma
+        bought : false,
+        visible: false,
+        effect : 2, //grandmaFactor
+    }
+    let Upgrade6 = {
+        cost : 2500,
+        requirement : 3, //Cook
+        bought : false,
+        visible: false,
+        effect : 2, //cookFactor
+    }
+    let Upgrade7 = {
+        cost : 7500,
+        requirement : 35, //small italian kid
+        bought : false,
+        visible: false,
+        effect : 2, //clickfactor
+    }
+    let Upgrade8 = {
+        cost : 15000,
+        requirement : 10, //cook
+        bought : false,
+        visible: false,
+        effect : 2, //cooKFactor
+    }
 
 
 
@@ -106,6 +167,16 @@ function Start()
     document.getElementById("cookName").innerHTML = "???";
     document.getElementById("kitchenName").innerHTML = "???";
     document.getElementById("smallFactoryName").innerHTML = "???";
+
+    document.getElementById("upgrade1").style.visibility = "hidden"; 
+    document.getElementById("upgrade2").style.visibility = "hidden"; 
+    document.getElementById("upgrade3").style.visibility = "hidden"; 
+    document.getElementById("upgrade4").style.visibility = "hidden"; 
+    document.getElementById("upgrade5").style.visibility = "hidden"; 
+    document.getElementById("upgrade6").style.visibility = "hidden"; 
+    document.getElementById("upgrade7").style.visibility = "hidden"; 
+    document.getElementById("upgrade8").style.visibility = "hidden"; 
+  
 }
 // general
 
@@ -171,6 +242,10 @@ function NoodlesNextClick()
 
 function NoodlesNextSecond()
 {
+    noodlesPerSecond = (baseNpsSmallItalianKid * ownedSmallItalianKid * smallItalianKidFactor) + 
+    (baseNpsGrandma * ownedGrandma * grandmaFactor) + (baseNpsCook * ownedCook * cookFactor) + 
+    (baseNpsNoodleMachine * ownedNoodleMachine * noodleMachineFactor) + (baseNpsKitchen * ownedKitchen * kitchenFactor) + 
+    (baseNpsSmallFactory * ownedSmallFactory * smallFactoryFactor); 
     return noodlesPerSecond * noodlesPerSecondFactor;
 }
 
@@ -248,7 +323,28 @@ function BuySmallItalianKid()
     document.getElementById("ownedSmallItalianKid").innerHTML = ownedSmallItalianKid;
     document.getElementById("noodles").innerHTML = noodles;
     document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
-    
+
+    if(ownedSmallItalianKid >= Upgrade1.requirement && !Upgrade1.visible){
+        document.getElementById("upgrade1").style.visibility = "visible";
+        Upgrade1.visible = true;
+    } 
+    if(ownedSmallItalianKid >= Upgrade2.requirement && !Upgrade2.visible){
+        document.getElementById("upgrade2").style.visibility = "visible";
+        Upgrade2.visible = true;
+    } 
+    if(ownedSmallItalianKid >= Upgrade4.requirement && !Upgrade4.visible){
+        document.getElementById("upgrade4").style.visibility = "visible";
+        Upgrade4.visible = true;
+    } 
+    if(ownedSmallItalianKid >= Upgrade7.requirement && !Upgrade7.visible){
+        document.getElementById("upgrade7").style.visibility = "visible";
+        Upgrade7.visible = true;
+    } 
+    if (ownedSmallItalianKid % 10 == 0)
+    {
+        noodlesPerClick++;
+        document.getElementById("noodlesPerClick").innerHTML = NoodlesNextClick();
+    }
 }
 function BuyGrandma()
 {
@@ -264,6 +360,19 @@ function BuyGrandma()
     document.getElementById("ownedGrandma").innerHTML = ownedGrandma;
     document.getElementById("noodles").innerHTML = noodles;
     document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+    if(ownedGrandma >= Upgrade3.requirement && !Upgrade3.visible){
+        document.getElementById("upgrade3").style.visibility = "visible";
+        Upgrade3.visible = true;
+    } 
+    if(ownedGrandma >= Upgrade5.requirement && !Upgrade5.visible){
+        document.getElementById("upgrade5").style.visibility = "visible";
+        Upgrade5.visible = true;
+    } 
+    if (ownedGrandma % 10 == 0)
+    {
+        noodlesPerClick++;
+        document.getElementById("noodlesPerClick").innerHTML = NoodlesNextClick();
+    }
 }
 function BuyCook()
 {
@@ -279,6 +388,19 @@ function BuyCook()
     document.getElementById("ownedCook").innerHTML = ownedCook;
     document.getElementById("noodles").innerHTML = noodles;
     document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+    if(ownedCook >= Upgrade6.requirement && !Upgrade6.visible){
+        document.getElementById("upgrade6").style.visibility = "visible";
+        Upgrade6.visible = true;
+    } 
+    if(ownedCook >= Upgrade8.requirement && !Upgrade8.visible){
+        document.getElementById("upgrade8").style.visibility = "visible";
+        Upgrade8.visible = true;
+    } 
+    if (ownedCook % 10 == 0)
+    {
+        noodlesPerClick++;
+        document.getElementById("noodlesPerClick").innerHTML = NoodlesNextClick();
+    }
 }
 
 function BuyNoodleMachine()
@@ -295,6 +417,11 @@ function BuyNoodleMachine()
     document.getElementById("ownedNoodleMachine").innerHTML = ownedNoodleMachine;
     document.getElementById("noodles").innerHTML = noodles;
     document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+    if (ownedNoodleMachine % 10 == 0)
+    {
+        noodlesPerClick++;
+        document.getElementById("noodlesPerClick").innerHTML = NoodlesNextClick();
+    }
 }
 
 function BuyKitchen()
@@ -312,6 +439,11 @@ function BuyKitchen()
     document.getElementById("ownedKitchen").innerHTML = ownedKitchen;
     document.getElementById("noodles").innerHTML = noodles;
     document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+    if (ownedKitchen % 10 == 0)
+    {
+        noodlesPerClick++;
+        document.getElementById("noodlesPerClick").innerHTML = NoodlesNextClick();
+    }
 }
 
 function BuySmallFactory()
@@ -329,7 +461,106 @@ function BuySmallFactory()
     document.getElementById("ownedSmallFactory").innerHTML = ownedSmallFactory;
     document.getElementById("noodles").innerHTML = noodles;
     document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+    if (ownedSmallFactory % 10 == 0)
+    {
+        noodlesPerClick++;
+        document.getElementById("noodlesPerClick").innerHTML = NoodlesNextClick();
+    }
 }
+
+
+// Buy Upgrades
+
+
+function BuyUpgrade1() {
+    if(noodles < Upgrade1.cost || Upgrade1.bought){
+        return;
+    }
+    noodles = noodles - Upgrade1.cost;
+    Upgrade1.bought = true;
+    smallItalianKidFactor = smallItalianKidFactor * Upgrade1.effect;
+    document.getElementById("noodles").innerHTML = noodles;
+    console.log(NoodlesNextClick)
+    document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+}
+
+function BuyUpgrade2() {
+    if(noodles < Upgrade2.cost || Upgrade2.bought){
+        return;
+    }
+    noodles = noodles - Upgrade2.cost;
+    Upgrade2.bought = true;
+    noodlesPerClickFactor = noodlesPerClickFactor * Upgrade2.effect;
+    document.getElementById("noodles").innerHTML = noodles;
+    document.getElementById("noodlesPerClick").innerHTML = NoodlesNextClick();
+}
+
+function BuyUpgrade3() {
+    if(noodles < Upgrade3.cost || Upgrade3.bought){
+        return;
+    }
+    noodles = noodles - Upgrade3.cost;
+    Upgrade3.bought = true;
+    grandmaFactor = grandmaFactor * Upgrade3.effect;
+    document.getElementById("noodles").innerHTML = noodles;
+    document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+}
+
+function BuyUpgrade4() {
+    if(noodles < Upgrade4.cost || Upgrade4.bought){
+        return;
+    }
+    noodles = noodles - Upgrade4.cost;
+    Upgrade4.bought = true;
+    smallItalianKidFactor = smallItalianKidFactor * Upgrade4.effect;
+    document.getElementById("noodles").innerHTML = noodles;
+    document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+}
+function BuyUpgrade5() {
+    if(noodles < Upgrade5.cost || Upgrade5.bought){
+        return;
+    }
+    noodles = noodles - Upgrade5.cost;
+    Upgrade5.bought = true;
+    grandmaFactor = grandmaFactor * Upgrade5.effect;
+    document.getElementById("noodles").innerHTML = noodles;
+    document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+}
+
+function BuyUpgrade6() {
+    if(noodles < Upgrade6.cost || Upgrade6.bought){
+        return;
+    }
+    noodles = noodles - Upgrade6.cost;
+    Upgrade6.bought = true;
+    cookFactor = cookFactor * Upgrade6.effect;
+    document.getElementById("noodles").innerHTML = noodles;
+    document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+}
+
+function BuyUpgrade7() {
+    if(noodles < Upgrade7.cost || Upgrade7.bought){
+        return;
+    }
+    noodles = noodles - Upgrade7.cost;
+    Upgrade7.bought = true;
+    noodlesPerClickFactor = noodlesPerClickFactor * Upgrade7.effect;
+    document.getElementById("noodles").innerHTML = noodles;
+    document.getElementById("noodlesPerClick").innerHTML = NoodlesNextClick();
+}
+
+function BuyUpgrade8() {
+    if(noodles < Upgrade8.cost || Upgrade8.bought){
+        return;
+    }
+    noodles = noodles - Upgrade8.cost;
+    Upgrade8.bought = true;
+    cookFactor = cookFactor * Upgrade8.effect;
+    document.getElementById("noodles").innerHTML = noodles;
+    document.getElementById("noodlesPerSecond").innerHTML = NoodlesNextSecond();
+}
+
+
 
 // calculate prices
 
@@ -369,7 +600,7 @@ function CalculatePriceNextSmallFactory()
 // Developer Tools
 
 function GiveCoins() {
-    noodles = noodles + 10000;
+    noodles = noodles + 1000;
     document.getElementById("noodles").innerHTML = noodles;
 }
 
